@@ -41,12 +41,12 @@ public class Main extends Application {
     final String JDBC_DRIVER = "org.h2.Driver";
     final String DB_URL = "jdbc:h2:./res/ProductionLine";
     final String USER = "";
-    final String PASS = "";
+    final String PASS = ""; //Flagged by FindBugs as a security bug
     Connection conn = null;
 
     try {
       Class.forName(JDBC_DRIVER);
-      conn = DriverManager.getConnection(DB_URL, USER, PASS);
+      conn = DriverManager.getConnection(DB_URL, USER, PASS); //FindBugs: fail to close database resource.
       stmt = conn.createStatement();
     } catch (Exception ex) {
       ex.printStackTrace();

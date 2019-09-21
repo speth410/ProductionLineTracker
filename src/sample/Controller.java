@@ -49,7 +49,7 @@ public class Controller {
             + "');";
 
     // Pass formatted sql statement to Main.exSQL
-    Main.exSql(sql);
+    Main.exSql(sql);          //FindBug: nonconstant string passes to execute on an SQL statement
   }
 
   @FXML
