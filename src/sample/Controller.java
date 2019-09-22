@@ -34,7 +34,7 @@ public class Controller {
   @FXML private TextArea taLog;
 
   /**
-   * Builds an SQL statement using input from textboxes and passes to Main.exSQL
+   * Builds an SQL statement using input from textboxes and passes it to Main.exSQL
    * @param event stores the mouse event.
    */
   @FXML
