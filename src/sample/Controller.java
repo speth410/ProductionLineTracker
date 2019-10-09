@@ -11,7 +11,11 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 
-/** JavaFX Controller.
+import java.util.ArrayList;
+
+/**
+ * JavaFX Controller.
+ *
  * @author Nicholas Speth
  */
 public class Controller {
@@ -19,7 +23,7 @@ public class Controller {
 
   @FXML private TextField txtManufacturer;
 
-  @FXML private ChoiceBox<?> cbItemType;
+  @FXML private ChoiceBox<ItemType> cbItemType;
 
   @FXML private Button btnAddProduct;
 
@@ -35,27 +39,30 @@ public class Controller {
 
   /**
    * Builds an SQL statement using input from textboxes and passes it to Main.exSQL
+   *
    * @param event stores the mouse event.
    */
   @FXML
   void handleAddProduct(MouseEvent event) {
+    ItemType test = cbItemType.getValue();
+
     String sql =
         "INSERT INTO PRODUCT(TYPE, MANUFACTURER, NAME) VALUES ('"
-            + "AUDIO'"
-            + ", '"
+            + test.getType()
+            + "', '"
             + txtManufacturer.getText()
             + "', '"
             + txtName.getText()
             + "');";
 
+    System.out.println(sql);
+
     // Pass formatted sql statement to Main.exSQL
-    Main.exSql(sql);          //FindBug: nonconstant string passes to execute on an SQL statement
+    Main.exSql(sql); // FindBug: nonconstant string passes to execute on an SQL statement
   }
 
   @FXML
-  void handleRecordProduction(ActionEvent event) {
-
-  }
+  void handleRecordProduction(ActionEvent event) {}
 
   /** First method executed when controller is called. */
   @FXML
@@ -63,5 +70,26 @@ public class Controller {
     cboQuantity.getItems().addAll("1", "2", "3", "4", "5", "6", "7", "8", "9", "10");
     cboQuantity.getSelectionModel().selectFirst();
     cboQuantity.setEditable(true);
+    cbItemType.getItems().addAll(ItemType.values());
+    testMultimedia();
+  }
+
+  public static void testMultimedia() {
+    AudioPlayer newAudioProduct =
+        new AudioPlayer(
+            "DP-X1A", "Onkyo", "DSD/FLAC/ALAC/WAV/AIFF/MQA/Ogg-Vorbis/MP3/AAC", "M3U/PLS/WPL");
+    Screen newScreen = new Screen("720x480", 40, 22);
+    MoviePlayer newMovieProduct =
+        new MoviePlayer("DBPOWER MK101", "OracleProduction", newScreen, MonitorType.LCD);
+    ArrayList<MultimediaControl> productList = new ArrayList<MultimediaControl>();
+    productList.add(newAudioProduct);
+    productList.add(newMovieProduct);
+    for (MultimediaControl p : productList) {
+      System.out.println(p);
+      p.play();
+      p.stop();
+      p.next();
+      p.previous();
+    }
   }
 }

@@ -9,11 +9,11 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-
-/** Main class.
+/**
+ * Main class.
+ *
  * @author Nick Speth
- * @brief
- * 9/21/19
+ * @brief 9/21/19
  */
 public class Main extends Application {
   /**
@@ -36,17 +36,19 @@ public class Main extends Application {
 
   /** Connect the program and the database. */
   protected void initializeDB() {
-    //Check style flagged the following 4 lines due to having more than 2 consecutive
-    //capital letters in the variable name.
+    // Check style flagged the following 4 lines due to having more than 2 consecutive
+    // capital letters in the variable name.
     final String JDBC_DRIVER = "org.h2.Driver";
     final String DB_URL = "jdbc:h2:./res/ProductionLine";
     final String USER = "";
-    final String PASS = ""; //Flagged by FindBugs as a security bug
+    final String PASS = ""; // Flagged by FindBugs as a security bug
     Connection conn = null;
 
     try {
       Class.forName(JDBC_DRIVER);
-      conn = DriverManager.getConnection(DB_URL, USER, PASS); //FindBugs: fail to close database resource.
+      conn =
+          DriverManager.getConnection(
+              DB_URL, USER, PASS); // FindBugs: fail to close database resource.
       stmt = conn.createStatement();
     } catch (Exception ex) {
       ex.printStackTrace();
