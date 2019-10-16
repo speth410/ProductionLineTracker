@@ -1,4 +1,7 @@
-package sample;
+package ProductionLine;
+
+import java.util.ArrayList;
+import java.util.Date;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -10,8 +13,6 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
-
-import java.util.ArrayList;
 
 /**
  * JavaFX Controller.
@@ -44,11 +45,11 @@ public class Controller {
    */
   @FXML
   void handleAddProduct(MouseEvent event) {
-    ItemType test = cbItemType.getValue();
+    ItemType itemType = cbItemType.getValue();
 
     String sql =
         "INSERT INTO PRODUCT(TYPE, MANUFACTURER, NAME) VALUES ('"
-            + test.getType()
+            + itemType.getType()
             + "', '"
             + txtManufacturer.getText()
             + "', '"
@@ -71,7 +72,11 @@ public class Controller {
     cboQuantity.getSelectionModel().selectFirst();
     cboQuantity.setEditable(true);
     cbItemType.getItems().addAll(ItemType.values());
+    cbItemType.getSelectionModel().selectFirst();
     testMultimedia();
+
+    ProductionRecord pr = new ProductionRecord(0, 3, "1", new Date());
+    taLog.setText(pr.toString());
   }
 
   public static void testMultimedia() {

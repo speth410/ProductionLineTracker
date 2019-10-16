@@ -1,11 +1,24 @@
-package sample;
+package ProductionLine;
 
+/**
+ * Product class holds product objects containing the products type, manufacturer, and name. The
+ * class also implements get/set methods for these attributes contained in the Item interface.
+ *
+ * @author Nicholas Speth
+ */
 public abstract class Product implements Item {
   private int id;
   private String type;
   private String manufacturer;
   private String name;
 
+  /**
+   * Constructor for a product object.
+   *
+   * @param name Name of the product.
+   * @param manufacturer The manufacturer of the product.
+   * @param type The type of device. ie. Audio, Visual, Audio_Mobile, Visual_Mobile.
+   */
   public Product(String name, String manufacturer, String type) {
     this.name = name;
     this.manufacturer = manufacturer;
