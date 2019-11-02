@@ -1,4 +1,4 @@
-package ProductionLine;
+package productionline;
 
 /**
  * Product class holds product objects containing the products type, manufacturer, and name. The
@@ -8,7 +8,7 @@ package ProductionLine;
  */
 public abstract class Product implements Item {
   private int id;
-  private String type;
+  private ItemType type;
   private String manufacturer;
   private String name;
 
@@ -19,7 +19,7 @@ public abstract class Product implements Item {
    * @param manufacturer The manufacturer of the product.
    * @param type The type of device. ie. Audio, Visual, Audio_Mobile, Visual_Mobile.
    */
-  public Product(String name, String manufacturer, String type) {
+  public Product(String name, String manufacturer, ItemType type) {
     this.name = name;
     this.manufacturer = manufacturer;
     this.type = type;
@@ -45,14 +45,12 @@ public abstract class Product implements Item {
     return manufacturer;
   }
 
+  public ItemType getType() {
+    return type;
+  }
+
   @Override
   public String toString() {
     return "Name: " + name + "\nManufacturer: " + manufacturer + "\nType: " + type;
-  }
-}
-
-class Widget extends Product {
-  public Widget(String name, String manufacturer, String type) {
-    super(name, manufacturer, type);
   }
 }

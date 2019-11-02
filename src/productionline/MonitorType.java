@@ -1,4 +1,4 @@
-package ProductionLine;
+package productionline;
 
 /**
  * enum to hold all of the possible monitor types.

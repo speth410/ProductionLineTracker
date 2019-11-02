@@ -1,4 +1,4 @@
-package ProductionLine;
+package productionline;
 
 /**
  * MoviePlayer class extends the Product class to add functionality specific to movie players.
@@ -11,14 +11,15 @@ public class MoviePlayer extends Product implements MultimediaControl {
   private Screen screen;
   private MonitorType monitorType;
 
-  /**
+  /** Constuctor for MoviePlayer Objects. Also creates a Product Object using super().
+   *
    * @param name Holds the name of the product.
    * @param manufacturer Holds the manufacturer of the product.
    * @param screen Holds a Screen Object.
    * @param monitorType Holds the monitor type.
    */
   public MoviePlayer(String name, String manufacturer, Screen screen, MonitorType monitorType) {
-    super(name, manufacturer, "VISUAL");
+    super(name, manufacturer, ItemType.VISUAL);
     this.screen = screen;
     this.monitorType = monitorType;
   }

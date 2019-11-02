@@ -1,0 +1,28 @@
+.gridpane {
+    -fx-background-color: #121212;
+}
+
+.tabpane .tab-header-area .tab-header-background {
+    -fx-opacity: 0;
+}
+
+.tpTabs {
+    -fx-background-color: rgba(255, 255, 255, 0.075);
+    -fx-text-fill: white;
+}
+
+.root {
+    -tab-text-color: -fx-text-base-color ;
+}
+
+.tab-label {
+    -fx-text-fill: -tab-text-color ;
+}
+
+.tpTabs {
+    -tab-text-color: white;
+}
+
+.apProductLine {
+    -fx-background-color: rgba(255, 255, 255, 0.075);
+}

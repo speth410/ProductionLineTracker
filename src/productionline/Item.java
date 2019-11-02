@@ -1,4 +1,4 @@
-package ProductionLine;
+package productionline;
 
 /**
  * The Item interface declares methods to be implemented in the Product class.

@@ -1,4 +1,4 @@
-package ProductionLine;
+package productionline;
 
 /**
  * Interface MultimediaControl declares methods used in MoviePlayer.

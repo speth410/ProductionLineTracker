@@ -1,4 +1,4 @@
-package ProductionLine;
+package productionline;
 
 /**
  * Creates an enum to hold the different Item types and their respective code. Contains a method
@@ -12,7 +12,7 @@ public enum ItemType {
   AUDIO_MOBILE("AM"),
   VISUAL_MOBILE("VM");
 
-  public String code;
+  private String code;
 
   /**
    * Constructor for an ItemType object.
@@ -28,7 +28,7 @@ public enum ItemType {
    *
    * @return String code stored within an ItemType object.
    */
-  public String getType() {
+  public String getCode() {
     return code;
   }
 }

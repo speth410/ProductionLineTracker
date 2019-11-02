@@ -1,4 +1,4 @@
-package ProductionLine;
+package productionline;
 
 /**
  * Class Screen holds Screen objects, their attributes, and implements methods declared in the
@@ -18,7 +18,7 @@ public class Screen implements ScreenSpec {
    * @param refreshrate Holds the refresh rate of the screen.
    * @param responcetime Holds the responce time of the screen.
    */
-  public Screen(String resolution, int refreshrate, int responcetime) {
+  Screen(String resolution, int refreshrate, int responcetime) {
     this.resolution = resolution;
     this.refreshrate = refreshrate;
     this.responcetime = responcetime;

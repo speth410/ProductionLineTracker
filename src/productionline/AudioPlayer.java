@@ -1,4 +1,4 @@
-package ProductionLine;
+package productionline;
 
 /**
  * Extends the Product class to add functionality specific to Audio devices. Implements methods
@@ -23,7 +23,7 @@ public class AudioPlayer extends Product implements MultimediaControl {
       String manufacturer,
       String supportedAudioFormats,
       String supportedPlaylistFormats) {
-    super(name, manufacturer, "AUDIO");
+    super(name, manufacturer, ItemType.AUDIO);
     this.supportedAudioFormats = supportedAudioFormats;
     this.supportedPlaylistFormats = supportedPlaylistFormats;
   }
