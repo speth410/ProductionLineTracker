@@ -1,7 +1,6 @@
-
+# Production Line Tracker
+![enter image description here](https://i.ibb.co/7jHGLB4/Production-Line.jpg)
 ## [Documentation](https://speth410.github.io/ProductionLineTracker/)
-
-
 ## Problem Statement
 
 **Scenario**
