@@ -7,11 +7,11 @@ package productionline;
  * @author Nicholas Speth
  */
 public class MoviePlayer extends Product implements MultimediaControl {
-
   private Screen screen;
   private MonitorType monitorType;
 
-  /** Constuctor for MoviePlayer Objects. Also creates a Product Object using super().
+  /**
+   * Constuctor for MoviePlayer Objects. Also creates a Product Object using super().
    *
    * @param name Holds the name of the product.
    * @param manufacturer Holds the manufacturer of the product.

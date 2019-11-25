@@ -47,10 +47,10 @@ public class ProductionRecord {
    * number.
    *
    * @param product Holds a Product object.
-   * @param itemCount Holds the item number unique to the product.
    */
   ProductionRecord(Product product, int itemCount) {
     dateProduced = new Date();
+
     productName = product.getName();
 
     serialNumber =
@@ -79,6 +79,14 @@ public class ProductionRecord {
     return serialNumber;
   }
 
+  public String getProductName() {
+    return productName;
+  }
+
+  public void setProductName(String productName) {
+    this.productName = productName;
+  }
+
   public void setSerialNumber(String serialNumber) {
     this.serialNumber = serialNumber;
   }
@@ -97,6 +105,7 @@ public class ProductionRecord {
   public String toString() {
 
     // If the product name was set, show productName instead of productID
+    /*
     if (productName != null) {
       return "Prod. Num: "
           + productionNumber
@@ -105,7 +114,8 @@ public class ProductionRecord {
           + " Serial Num: "
           + serialNumber
           + " Date: "
-          + dateProduced;
+          + dateProduced
+          + "\n";
     } else {
       return "Prod. Num: "
           + productionNumber
@@ -114,7 +124,18 @@ public class ProductionRecord {
           + " Serial Num: "
           + serialNumber
           + " Date: "
-          + dateProduced;
+          + dateProduced
+          + "\n";
     }
+     */
+    return "Prod. Num: "
+        + productionNumber
+        + " Product Name: "
+        + productName
+        + " Serial Num: "
+        + serialNumber
+        + " Date: "
+        + dateProduced
+        + "\n";
   }
 }

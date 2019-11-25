@@ -1,9 +1,11 @@
 package productionline;
 
+import java.io.FileInputStream;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.Properties;
 
 /**
  * This class handles database fundtions such as starting/stopping the database and executing
@@ -20,25 +22,45 @@ public class DbHandler {
    *     program.
    */
   public static Connection initializeDB() {
-    // Check style flagged the following 4 lines due to having more than 2 consecutive
-    // capital letters in the variable name.
-    final String JDBC_DRIVER = "org.h2.Driver";
-    final String DB_URL = "jdbc:h2:./res/ProductionLine";
-    final String USER = "";
-    final String PASS = ""; // Flagged by FindBugs as a security bug
+
+    final String jdbcDriver = "org.h2.Driver";
+    final String dbUrl = "jdbc:h2:./res/ProductionLine";
+    final String dbUser = "";
     Connection conn = null;
 
     try {
-      Class.forName(JDBC_DRIVER);
-      conn = DriverManager.getConnection(DB_URL, USER, PASS);
+      Properties prop = new Properties();
+
+      // Load properties from properties file.
+      prop.load(new FileInputStream("res/properties"));
+
+      String dbPassword = reverseString(prop.getProperty("password"));
+
+      Class.forName(jdbcDriver);
+      conn = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
 
       System.out.println("Database Initialized.");
 
       return conn;
-    } catch (Exception ex) {
-      ex.printStackTrace();
+    } catch (Exception e) {
+      e.printStackTrace();
       return null;
-    } // end try catch
+    }
+  }
+
+  /**
+   * Reverse a string using recursion.
+   *
+   * @param pw Holds the password found in the properties file.
+   * @return
+   */
+  private static String reverseString(String pw) {
+    // Paste the code for your reverseString method here.
+    if (pw.isEmpty()) {
+      return pw;
+    }
+
+    return reverseString(pw.substring(1)) + pw.charAt(0);
   }
 
   /**
